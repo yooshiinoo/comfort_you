@@ -16,7 +16,8 @@
 心身ともに疲労がある時、心に余裕があり優しさを分けられる時。
 
 ## 設計書
-実装機能リストhttps://docs.google.com/spreadsheets/d/1FKdrHf7ED3qEczWTl3Xu5NRpwpTaQHvfd8rctGcuhQY/edit?usp=sharing
+* 実装機能リストhttps://docs.google.com/spreadsheets/d/1FKdrHf7ED3qEczWTl3Xu5NRpwpTaQHvfd8rctGcuhQY/edit?usp=sharing
+
 
 ## 開発環境
 - OS：Linux(CentOS)
