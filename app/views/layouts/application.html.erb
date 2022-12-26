@@ -10,7 +10,82 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column h-100">
+    <header class="border-bottom border-dark">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white p-4">
+        <div class="container">
+          <% if admin_signed_in? %>
+            <a>
+              <span>comfort_you</span>
+            </a>
+          <% else %>
+            <%= link_to root_path, class: "nav-link text-dark" do %>
+              comfort_you
+            <% end %>
+          <% end %>
+          <div class="navbar-collapse collapse show" id="navbarNavDropdown" style>
+            <ul class="navbar-nav ml-auto">
+              <% if admin_signed_in? %>
+                <li>
+                  <%= link_to admin_root_path, class: "nav-link text-dark" do %>
+                    投稿一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to admin_users_path, class: "nav-link text-dark" do %>
+                    ユーザー一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link text-dark" do %>
+                    ログアウト
+                  <% end %>
+                </li>
+              <% elsif user_signed_in? %>
+                <li>
+                  <%= link_to public_users_my_page_path(current_customer), class: "nav-link text-dark" do %>
+                    マイページ
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to public_posts_path, class: "nav-link text-dark" do %>
+                    投稿一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_public_post_path, class: "nav-link text-dark" do %>
+                    投稿する
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-dark" do %>
+                    ログアウト
+                  <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to new_user_registration_path, class:"nav-link text-dark" do %>
+                    新規登録
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_session_path, class:"nav-link text-dark" do %>
+                    ログイン
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
+    <footer class="border-top border-dark mt-auto py-2 text-center">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white p-4">
+        <div class="container">
+
+        </div>
+      </nav>
+    </footer>
   </body>
 </html>
