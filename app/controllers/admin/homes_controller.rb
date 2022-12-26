@@ -5,7 +5,7 @@ class Admin::HomesController < ApplicationController
   
   private
   def post_params
-    params.require(:customer).permit(:user_id, :text)
+    params.require(:post).permit(:user_id, :text)
   end
   
 end
