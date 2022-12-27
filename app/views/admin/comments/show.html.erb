@@ -1,2 +1,36 @@
-<h1>Admin::Comments#show</h1>
-<p>Find me in app/views/admin/comments/show.html.erb</p>
+<div class="container">
+  <h2>必要があれば削除</h2>
+  <div class="row">
+    <div class="col-md-5 pull-right">
+      <div class="col-md-5 border border-dark border border-5 rounded-3">
+        <%= @post.user.name %>
+        <span class="border-bottom border-dark border-3"></span>
+        <%= @post.text %>
+        <span class="border-bottom border-dark border-2"></span>
+        <p>コメント <%= @post.comments.count %>件</p>
+      </div>
+    </div>
+    <div class="col-md-5 pull-left">
+      <div class="col-md-5 border border-dark border border-5 rounded-3">
+        <% @comment.each do |comment| %>
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <%= comment.user.name %>
+                <%= comment.text %>
+                <%= link_to "削除", admin_comment_path(comment.id), method: :delete, class: "btn btn-danger" %>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
