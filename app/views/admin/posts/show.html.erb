@@ -1,2 +1,16 @@
-<h1>Admin::Posts#show</h1>
-<p>Find me in app/views/admin/posts/show.html.erb</p>
+<div class="container">
+  <h2>コメントを確認</h2>
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <div class="col-md-9 border border-dark border border-5 rounded-3">
+        <%= @post.user.name %>
+        <span class="border-bottom border-dark border-3"></span>
+        <%= @post.text %>
+        <span class="border-bottom border-dark border-2"></span>
+        <%= link_to admin_comment_path(@post.id), class: "nav-link text-dark" do %>
+          <p>コメント <%= @post.comments.count %>件</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
