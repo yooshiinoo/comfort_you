@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
   def index
     @users = User.page(params[:page])
+    @user = User.find(params[:id])
   end
 
   def show
@@ -14,7 +15,7 @@ class Admin::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :first_name, :email, :is_deleted)
+    params.require(:user).permit(:name, ::email, :is_deleted)
   end
 
 end
