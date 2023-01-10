@@ -3,7 +3,7 @@
 class Public::RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
-    public_users_my_page_path(current_customer)
+    public_users_my_page_path(current_user)
   end
 
   # before_action :configure_sign_up_params, only: [:create]
