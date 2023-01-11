@@ -1,3 +1,24 @@
 <div class="container">
-  
+  <div class="row" style="height:50px;"></div>
+  <h2>マイページを編集するよ</h2>
+  <div class="row" style="height:20px;"></div>
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <%= form_with model: @user, url:public_users_information_path, method: :patch do |f| %>
+        <div class="form-group">
+          <%= f.label "あなたの呼び名を教えて" %><br />
+          <%= f.text_field :name, autofocus: true, placeholder:@user.name %>
+        </div>
+        <div class="form-group">
+          <%= f.label "メールアドレスは" %><br />
+          <%= f.email_field :email, autofocus: true, placeholder:@user.email %>
+        </div>
+        <%= f.submit "編集内容を保存", class:"btn btn-sm btn-success" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row" style="height:20px;"></div>
+  <div class="row">
+    <%= link_to "退会する", public_users_unsubscribe_path(current_user), class:"btn btn-sm btn-danger" %>
+  </div>
 </div>
