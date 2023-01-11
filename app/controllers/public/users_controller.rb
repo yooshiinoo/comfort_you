@@ -1,7 +1,7 @@
 class Public::UsersController < ApplicationController
   def show
     @user = current_user
-    @user = User.find(params[:id])
+
   end
 
   def edit
@@ -25,7 +25,7 @@ class Public::UsersController < ApplicationController
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    redirect_to root_path
+    redirect_to public_about_path
   end
 
   private
