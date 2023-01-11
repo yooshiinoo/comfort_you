@@ -26,7 +26,8 @@ Rails.application.routes.draw do
     patch "/users/withdraw" => "users#withdraw"
     resources :posts, only: [:new, :create, :index, :show]
     resources :comments, only: [:create, :show, :destroy]
-    resource :goods, only: [:index, :create, :destroy]
+    resources :goods, only: [:index]
+    resource :goods, only: [:create, :destroy]
   end
 
   namespace :admin do
