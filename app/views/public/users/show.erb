@@ -32,11 +32,11 @@
       <h4><%= @user.name %>の投稿一覧</h4>
       <% @user.posts.each do |user| %>
         <div class="col-md-7 border border-dark border border-5 rounded">
-          <%= user.name %>
-          <span class="border-bottom border-dark border"></span>
-          <%= link_to public_post_path(@user.post.id), class: "nav-link text-dark" do %>
+          <%= @user.name %>
+          <span class="row border-bottom border-dark border"></span>
+          <%= link_to public_post_path(@user.id), class: "nav-link text-dark" do %>
             <%= user.post.text %>
-            <span class="border-bottom border-dark border-2"></span>
+            <span class="row border-bottom border-dark border-2"></span>
             <p>コメント <%= @user.post.comments.count %>件</p>
           <% end %>
         </div>

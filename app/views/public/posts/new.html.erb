@@ -1,2 +1,22 @@
-<h1>Public::Posts#new</h1>
-<p>Find me in app/views/public/posts/new.html.erb</p>
+<div class="container">
+  <div class="row" style="height:50px;"></div>
+  <h2>あなたの言葉で心を整理してね</h2>
+  <div class="row" style="height:20px;"></div>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <%= form_with model: @post, url:public_posts_path do |f| %>
+        <div class="row">
+          <div class="col-md-7.5 mx-auto">
+            <%= f.text_area :text, placeholder:"投稿があなたの吐け口となるよ", :size=>"70x10" %>
+          </div>
+        </div>
+        <div class="row" style="height:20px;"></div>
+        <div class="row">
+          <div class="col-md-5.5 mx-auto">
+            <%= f.submit "投稿する", class:"btn btn-success" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
