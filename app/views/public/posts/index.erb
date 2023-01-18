@@ -4,7 +4,7 @@
   <div class="row" style="height:20px;"></div>
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <% @posts.each do |post| %>
+      <% @posts.reverse.each do |post| %>
         <div class="col-md-7 border border-dark border border-5 rounded">
           <%= post.user.name %>
           <span class="row border-bottom border-dark border"></span>
@@ -19,4 +19,10 @@
       <% end %>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <%= paginate @posts %>
+    </div>
+  </div>
+  <div class="row" style="height:100px;"></div>
 </div>

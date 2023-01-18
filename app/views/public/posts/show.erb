@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row" style="height:50px;"></div>
-  <h2>あなたの気持ちを言葉にできたかな</h2>
+  <h2>気持ちに向かい合うのは難しいよね</h2>
   <div class="row" style="height:20px;"></div>
   <div class="row">
     <div class="col-md-8 mx-auto">
       <div class="col-md-7 border border-dark border border-5 rounded">
         <%= @post.user.name %>
         <span class="row border-bottom border-dark border"></span>
-        <%= link_to public_post_path(@post.id), class: "nav-link text-dark" do %>
+        <%= link_to public_comment_path(@post.id), class: "nav-link text-dark" do %>
           <%= @post.text %>
           <div class="row" style="height:20px;"></div>
           <span class="row border-bottom border-dark border-2"></span>
