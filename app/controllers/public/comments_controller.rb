@@ -7,11 +7,13 @@ class Public::CommentsController < ApplicationController
   end
 
   def show
-
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
   end
 
   def destroy
-
+    Comment.find(params[:id]).destroy
+    redirect_to public_posts_path
   end
 
   private

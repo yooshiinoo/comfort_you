@@ -3,6 +3,29 @@
   <h2>あなたの言葉がチカラになる</h2>
   <div class="row" style="height:20px;"></div>
   <div class="row">
-    
+    <div class="col-md-10 mx-auto">
+      <div class="col-md-7 border border-dark border border-5 rounded">
+        <%= @comment.user.name %>
+        <span class="row border-bottom border-dark border"></span>
+        <div class="row" style="height:10px;"></div>
+        <%= @comment.post.text %>
+        <div class="row" style="height:20px;"></div>
+        <span class="row border-bottom border-dark border-2"></span>
+        <div class="row" style="height:10px;"></div>
+        <p>コメント</p>
+        <% @post.comments.each do |post| %>
+          <table class="table table-borderless">
+            <tr>
+              <td><%= post.user.name %></td>
+              <td><%= post.text %></td>
+              <% if current_user %>
+                <td><%= link_to "削除", public_comment_path(@comment.id), method: :delete, class: "btn btn-sm btn-danger" %></td>
+              <% end %>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
   </div>
+  <div class="row" style="height:100px;"></div>
 </div>
