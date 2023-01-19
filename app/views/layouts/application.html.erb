@@ -18,6 +18,10 @@
             <a>
               <span>comfort_you</span>
             </a>
+          <% elsif user_signed_in? %>
+            <a>
+              <span>comfort_you</span>
+            </a>
           <% else %>
             <%= link_to root_path, class: "nav-link text-dark" do %>
               comfort_you
