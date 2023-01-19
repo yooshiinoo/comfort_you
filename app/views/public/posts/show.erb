@@ -7,11 +7,19 @@
       <div class="col-md-7 border border-dark border border-5 rounded">
         <%= @post.user.name %>
         <span class="row border-bottom border-dark border"></span>
-        <%= link_to public_comment_path(@comments.ids), class: "nav-link text-dark" do %>
+        <div class="row" style="height:10px;"></div>
+        <% if @post.comments.any? %>
+          <%= link_to public_comment_path(@comments.ids), class: "nav-link text-dark" do %>
+            <%= @post.text %>
+            <div class="row" style="height:20px;"></div>
+            <span class="row border-bottom border-dark border-2"></span>
+          <% end %>
+        <% else %>
           <%= @post.text %>
           <div class="row" style="height:20px;"></div>
           <span class="row border-bottom border-dark border-2"></span>
         <% end %>
+        <div class="row" style="height:10px;"></div>
         <%= form_with model: @comment, url:public_comments_path do |f| %>
           <p>
             コメント
