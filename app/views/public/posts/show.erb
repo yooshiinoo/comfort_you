@@ -11,9 +11,16 @@
           <%= @post.text %>
           <div class="row" style="height:20px;"></div>
           <span class="row border-bottom border-dark border-2"></span>
-          <p>コメント <%= @post.comments.count %>件</p>
         <% end %>
-        </div>
+        <%= form_with model: @comment, url:public_comments_path do |f| %>
+          <p>
+            コメント
+            <%= f.text_field :text, placeholder: "コメントをここに" %>
+            <%= f.hidden_field :post_id, value: @post.id %>
+            <%= f.submit "送信する", class:"btn btn-sm btn-success" %>
+          </p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

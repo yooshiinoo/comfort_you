@@ -5,7 +5,7 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = (current_user.id)
+    @post.user_id = current_user.id
     if @post.save
       redirect_to public_post_path(@post.id)
     else
@@ -20,6 +20,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   private
