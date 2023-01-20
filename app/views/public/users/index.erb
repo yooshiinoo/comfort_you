@@ -1,17 +1,21 @@
 <div class="container">
   <div class="row" style="height:50px;"></div>
-  <h2>みんなの投稿一覧</h2>
+  <h2><%= @user.name %>のいいね一覧</h2>
   <div class="row" style="height:20px;"></div>
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <% @posts.reverse.each do |post| %>
+      <% @favorite_posts.each do |post|%>
         <div class="col-md-7 border border-dark border border-5 rounded">
           <%= post.user.name %>
           <span class="row border-bottom border-dark border"></span>
           <div class="row" style="height:20px;"></div>
           <%= link_to public_post_path(post.id), class: "nav-link text-dark" do %>
             <%= post.text %>
-            <p class="text-right">♥♡</p>
+            <p class="text-right">
+              <%= link_to public_post_favorites_path(post), method: :delete do %>
+                ♥
+              <% end %>
+            </p>
             <span class="row border-bottom border-dark border-2"></span>
             <p>コメント <%= post.comments.count %>件</p>
           <% end %>
@@ -20,10 +24,6 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <%= paginate @posts %>
-    </div>
-  </div>
   <div class="row" style="height:100px;"></div>
 </div>
+

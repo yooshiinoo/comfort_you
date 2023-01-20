@@ -29,6 +29,12 @@ class Public::UsersController < ApplicationController
     redirect_to public_about_path
   end
 
+  def index
+    @user = current_user
+    favorites= Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :is_deleted)

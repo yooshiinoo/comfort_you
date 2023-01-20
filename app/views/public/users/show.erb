@@ -24,14 +24,19 @@
       <div class="row" style="height:50px;"></div>
       <div class="row">
         <div class="col-md-2.5 mx-auto">
-          <%= link_to public_post_favorites_path(@post), class:"btn btn-outline-danger" do %>
+          <%= link_to public_users_favorite_path(@post), class:"btn btn-outline-danger" do %>
             いいね一覧を見る
           <% end %>
         </div>
       </div>
     </div>
     <div class="col-md-8 mx-auto">
-      <h4><%= @user.name %>の投稿一覧</h4>
+      <h4>
+        <%= @user.name %>の投稿一覧
+        <%= link_to new_public_post_path, class:"btn btn-outline-primary" do %>
+          投稿する
+        <% end %>
+      </h4>
       <% @post.reverse.each do |post| %>
         <div class="col-md-7 border border-dark border border-5 rounded">
           <%= @user.name %>
