@@ -1,21 +1,31 @@
 <div class="container">
+  <div class="row" style="height:50px;"></div>
   <h2>投稿一覧</h2>
+  <div class="row" style="height:20px;"></div>
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <% @posts.each do |post| %>
-        <div class="col-md-7 border border-dark border border-5 rounded-3">
-          <%= link_to admin_user_path(@post.user.id), class: "nav-link text-dark" do %>
+      <% @posts.reverse.each do |post| %>
+        <div class="col-md-7 border border-dark border border-5 rounded">
+          <%= link_to admin_user_path(post.user.id), class: "nav-link text-dark" do %>
             <%= post.user.name %>
           <% end %>
-          <span class="border-bottom border-dark border-3"></span>
-          <%= link_to admin_post_path(@post.id), class: "nav-link text-dark" do %>
+          <span class="row border-bottom border-dark border"></span>
+          <div class="row" style="height:20px;"></div>
+          <%= link_to admin_post_path(post.id), class: "nav-link text-dark" do %>
             <%= post.text %>
-            <span class="border-bottom border-dark border-2"></span>
-            <p>コメント <%= @post.comments.count %>件</p>
+            <div class="row" style="height:20px;"></div>
+            <span class="row border-bottom border-dark border-2"></span>
+            <p>コメント <%= post.comments.count %>件</p>
           <% end %>
         </div>
+        <div class="row" style="height:15px;"></div>
       <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mx-auto">
       <%= paginate @posts %>
     </div>
   </div>
+  <div class="row" style="height:100px;"></div>
 </div>

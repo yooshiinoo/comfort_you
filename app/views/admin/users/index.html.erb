@@ -1,5 +1,7 @@
 <div class="container">
+  <div class="row" style="height:50px;"></div>
   <h2>ユーザー一覧</h2>
+  <div class="row" style="height:20px;"></div>
   <div class="row">
     <div class="col-md-8 mx-auto">
       <table class="table table-borderless">
@@ -15,11 +17,15 @@
             <tr>
               <td><%= user.id %></td>
               <td>
-                <%= link_to admin_user_path(@user.id), class: "nav-link text-dark" do %>
-                  <%= user.name %>
+                <%= link_to admin_user_path(user.id), class: "nav-link text-dark" do %>
+                  <% if user.is_deleted == false %>
+                    <p class="text-info"><%= user.name %></p>
+                  <% else %>
+                    <p class="text-danger"><%= user.name %></p>
+                  <% end %>
                 <% end %>
               </td>
-              <td><%= user.post.count %></td>
+              <td><%= user.posts.count %></td>
             </tr>
           <% end %>
         </tbody>
@@ -27,4 +33,5 @@
       <%= paginate @users %>
     </div>
   </div>
+  <div class="row" style="height:100px;"></div>
 </div>

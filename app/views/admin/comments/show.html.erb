@@ -1,36 +1,29 @@
 <div class="container">
+  <div class="row" style="height:50px;"></div>
   <h2>必要があれば削除</h2>
+  <div class="row" style="height:20px;"></div>
   <div class="row">
-    <div class="col-md-5 pull-right">
-      <div class="col-md-5 border border-dark border border-5 rounded-3">
+    <div class="col-md-10 mx-auto">
+      <div class="col-md-7 border border-dark border border-5 rounded">
         <%= @post.user.name %>
-        <span class="border-bottom border-dark border-3"></span>
+        <span class="row border-bottom border-dark border"></span>
+        <div class="row" style="height:10px;"></div>
         <%= @post.text %>
-        <span class="border-bottom border-dark border-2"></span>
-        <p>コメント <%= @post.comments.count %>件</p>
-      </div>
-    </div>
-    <div class="col-md-5 pull-left">
-      <div class="col-md-5 border border-dark border border-5 rounded-3">
-        <% @comment.each do |comment| %>
+        <div class="row" style="height:20px;"></div>
+        <span class="row border-bottom border-dark border-2"></span>
+        <div class="row" style="height:10px;"></div>
+        <p>コメント</p>
+        <% @post.comments.reverse.each do |post| %>
           <table class="table table-borderless">
-            <thead>
-              <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <%= comment.user.name %>
-                <%= comment.text %>
-                <%= link_to "削除", admin_comment_path(comment.id), method: :delete, class: "btn btn-danger" %>
-              </tr>
-            </tbody>
+            <tr>
+              <td><%= post.user.name %></td>
+              <td><%= post.text %></td>
+              <td><%= link_to "削除", admin_comment_path(@comment.ids), method: :delete, class: "btn btn-danger" %></td>
+            </tr>
           </table>
         <% end %>
       </div>
     </div>
   </div>
+  <div class="row" style="height:100px;"></div>
 </div>

@@ -1,12 +1,16 @@
 <div class="container">
+  <div class="row" style="height:50px;"></div>
   <h2>コメントを確認</h2>
+  <div class="row" style="height:20px;"></div>
   <div class="row">
-    <div class="col-md-10 mx-auto">
-      <div class="col-md-9 border border-dark border border-5 rounded-3">
+    <div class="col-md-8 mx-auto">
+      <div class="col-md-7 border border-dark border border-5 rounded">
         <%= @post.user.name %>
-        <span class="border-bottom border-dark border-3"></span>
+        <span class="row border-bottom border-dark border"></span>
+        <div class="row" style="height:20px;"></div>
         <%= @post.text %>
-        <span class="border-bottom border-dark border-2"></span>
+        <div class="row" style="height:20px;"></div>
+        <span class="row border-bottom border-dark border-2"></span>
         <%= link_to admin_comment_path(@post.id), class: "nav-link text-dark" do %>
           <p>コメント <%= @post.comments.count %>件</p>
         <% end %>
@@ -14,3 +18,4 @@
     </div>
   </div>
 </div>
+
