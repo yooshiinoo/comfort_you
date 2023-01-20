@@ -7,7 +7,7 @@
       <div class="col-md-7 border border-dark border border-5 rounded">
         <%= @post.user.name %>
         <span class="row border-bottom border-dark border"></span>
-        <div class="row" style="height:10px;"></div>
+        <div class="row" style="height:20px;"></div>
         <% if @post.comments.any? %>
           <%= link_to public_comment_path(@comments.ids), class: "nav-link text-dark" do %>
             <%= @post.text %>

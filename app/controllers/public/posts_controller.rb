@@ -23,7 +23,7 @@ class Public::PostsController < ApplicationController
     @comment = Comment.new
     @comments = @post.comments
   end
-
+  
   private
   def post_params
     params.require(:post).permit(:user_id, :text)

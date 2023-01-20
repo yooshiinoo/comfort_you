@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-10 mx-auto">
       <div class="col-md-7 border border-dark border border-5 rounded">
-        <%= @comment.user.name %>
+        <%= @post.user.name %>
         <span class="row border-bottom border-dark border"></span>
         <div class="row" style="height:10px;"></div>
         <%= @comment.post.text %>
@@ -13,7 +13,7 @@
         <span class="row border-bottom border-dark border-2"></span>
         <div class="row" style="height:10px;"></div>
         <p>コメント</p>
-        <% @post.comments.each do |post| %>
+        <% @post.comments.reverse.each do |post| %>
           <table class="table table-borderless">
             <tr>
               <td><%= post.user.name %></td>
@@ -27,5 +27,5 @@
       </div>
     </div>
   </div>
-  <div class="row" style="height:100px;"></div>
+  <div class="row" style="height:110px;"></div>
 </div>

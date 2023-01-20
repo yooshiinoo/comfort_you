@@ -24,10 +24,11 @@ Rails.application.routes.draw do
     patch "/users/information" => "users#update"
     get "/users/unsubscribe" => "users#unsubscribe"
     patch "/users/withdraw" => "users#withdraw"
-    resources :posts, only: [:new, :create, :index, :show]
+    resources :posts, only: [:new, :create, :index, :show] do
+      resources :favorites, only: [:index]
+      resource :favorites, only: [:create, :destroy]
+    end
     resources :comments, only: [:create, :show, :destroy]
-    resources :goods, only: [:index]
-    resource :goods, only: [:create, :destroy]
   end
 
   namespace :admin do
