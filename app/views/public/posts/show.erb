@@ -11,12 +11,32 @@
         <% if @post.comments.any? %>
           <%= link_to public_comment_path(@comments.ids), class: "nav-link text-dark" do %>
             <%= @post.text %>
-            <div class="row" style="height:20px;"></div>
+            <p class="text-right">
+              <% if @post.favorited_by?(current_user) %>
+                <%= link_to public_post_favorites_path(@post), method: :delete do %>
+                  ♥
+                <% end %>
+              <% else %>
+                <%= link_to public_post_favorites_path(@post), method: :post do %>
+                  ♡
+                <% end %>
+              <% end %>
+            </p>
             <span class="row border-bottom border-dark border-2"></span>
           <% end %>
         <% else %>
           <%= @post.text %>
-          <div class="row" style="height:20px;"></div>
+          <p class="text-right">
+            <% if @post.favorited_by?(current_user) %>
+              <%= link_to public_post_favorites_path(@post), method: :delete do %>
+                ♥
+              <% end %>
+            <% else %>
+              <%= link_to public_post_favorites_path(@post), method: :post do %>
+                ♡
+              <% end %>
+            <% end %>
+          </p>
           <span class="row border-bottom border-dark border-2"></span>
         <% end %>
         <div class="row" style="height:10px;"></div>

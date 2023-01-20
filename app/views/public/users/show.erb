@@ -24,7 +24,7 @@
       <div class="row" style="height:50px;"></div>
       <div class="row">
         <div class="col-md-2.5 mx-auto">
-          <%= link_to public_goods_path, class:"btn btn-outline-danger" do %>
+          <%= link_to public_post_favorites_path(@post), class:"btn btn-outline-danger" do %>
             いいね一覧を見る
           <% end %>
         </div>
@@ -36,8 +36,9 @@
         <div class="col-md-7 border border-dark border border-5 rounded">
           <%= @user.name %>
           <span class="row border-bottom border-dark border"></span>
-          <%= link_to public_post_path(@user.id), class: "nav-link text-dark" do %>
+          <%= link_to public_post_path(@post.ids), class: "nav-link text-dark" do %>
             <%= post.text %>
+            <p class="text-right">♥♡</p>
             <span class="row border-bottom border-dark border-2"></span>
             <p>コメント <%= post.comments.count %>件</p>
           <% end %>

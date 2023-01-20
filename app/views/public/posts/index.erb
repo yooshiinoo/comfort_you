@@ -10,11 +10,10 @@
           <span class="row border-bottom border-dark border"></span>
           <%= link_to public_post_path(post.id), class: "nav-link text-dark" do %>
             <%= post.text %>
-            <div class="row" style="height:20px;"></div>
+            <p class="text-right">♥♡</p>
             <span class="row border-bottom border-dark border-2"></span>
             <p>コメント <%= post.comments.count %>件</p>
           <% end %>
-          <p class="text-right">右寄せ</p>
         </div>
         <div class="row" style="height:15px;"></div>
       <% end %>
