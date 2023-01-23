@@ -2,8 +2,11 @@ class Public::CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.save
-    redirect_to public_comment_path(@comment.id)
+    if @comment.save
+      redirect_to public_comment_path(@comment.id)
+    else
+      redirect_to public_posts_path
+    end
   end
 
   def show

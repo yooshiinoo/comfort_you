@@ -4,6 +4,9 @@
   <div class="row" style="height:20px;"></div>
   <div class="row">
     <div class="col-md-5 mx-auto">
+      <% if @user.errors.any? %>
+        <p>入力して教えてね</p>
+      <% end %>
       <%= form_with model: @user, url:public_users_information_path, method: :patch do |f| %>
         <div class="form-group">
           <%= f.label "あなたの呼び名を教えて" %><br />

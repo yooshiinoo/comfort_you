@@ -4,6 +4,9 @@
   <div class="row" style="height:20px;"></div>
   <div class="row">
     <div class="col-md-8 mx-auto">
+      <% if @post.errors.any? %>
+        <p>入力してから投稿してね</p>
+      <% end %>
       <%= form_with model: @post, url:public_posts_path do |f| %>
         <div class="row">
           <div class="col-md-7.5 mx-auto">

@@ -10,7 +10,7 @@ class Public::PostsController < ApplicationController
       redirect_to public_post_path(@post.id)
     else
       @posts = Post.all
-      render :index
+      render :new
     end
   end
 
@@ -23,7 +23,7 @@ class Public::PostsController < ApplicationController
     @comment = Comment.new
     @comments = @post.comments
   end
-  
+
   private
   def post_params
     params.require(:post).permit(:user_id, :text)
