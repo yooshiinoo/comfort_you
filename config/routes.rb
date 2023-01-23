@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+  devise_scope :user do
+    post 'public/users/guest_sign_in', to: 'public/users/sessions#guest_sign_in'
+  end
+
 
   # 管理者用
   # URL /admin/sign_in ...
