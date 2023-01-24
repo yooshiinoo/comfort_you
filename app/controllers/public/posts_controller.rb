@@ -15,7 +15,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page])
+    @search = Post.ransack(params[:q])
+    @posts = @search.result.page(params[:page])
   end
 
   def show
