@@ -37,7 +37,7 @@
     <div class="col-md-8 mx-auto">
       <h4><%= @user.name %>の投稿一覧</h4>
       <div class="row" style="height:20px;"></div>
-      <% @posts.reverse.each do |post| %>
+      <% @posts.each do |post| %>
         <div class="col-md-7 border border-dark border border-5 rounded">
           <%= post.user.name %>
           <span class="row border-bottom border-dark border"></span>
@@ -51,6 +51,11 @@
         </div>
         <div class="row" style="height:15px;"></div>
       <% end %>
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <%= paginate @posts %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row" style="height:100px;"></div>

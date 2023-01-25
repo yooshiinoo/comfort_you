@@ -51,7 +51,7 @@
           投稿する
         <% end %>
       </h4>
-      <% @post.reverse.each do |post| %>
+      <% @posts.each do |post| %>
         <div class="col-md-7 border border-dark border border-5 rounded">
           <%= @user.name %>
           <span class="row border-bottom border-dark border"></span>
@@ -64,10 +64,10 @@
         </div>
         <div class="row" style="height:15px;"></div>
       <% end %>
-    </div>
-    <div class="row">
-      <div class="col-md-6 mx-auto">
-        <%= paginate @posts %>
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <%= paginate @posts %>
+        </div>
       </div>
     </div>
   </div>

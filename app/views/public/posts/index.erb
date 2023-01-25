@@ -23,7 +23,7 @@
   </div>
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <% @posts.reverse.each do |post| %>
+      <% @posts.each do |post| %>
         <div class="col-md-7 border border-dark border border-5 rounded">
           <%= post.user.name %>
           <span class="row border-bottom border-dark border"></span>

@@ -4,7 +4,26 @@
   <div class="row" style="height:20px;"></div>
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <% @posts.reverse.each do |post| %>
+      <% if @posts.any? %>
+        <div class="row d-flex">
+          <%= search_form_for @search, url:admin_root_path do |f| %>
+            <div class="input-group md-6">
+              <%= f.search_field :text_cont, class: "form-control", placeholder: '投稿が検索できるよ' %>
+              <div class="input-group-append">
+                <%= f.submit "検索", class: "btn btn-primary" %>
+              </div>
+            </div>
+            <div class="row" style="height:20px;"></div>
+          <% end %>
+        </div>
+      <% else %>
+        <h4>検索結果、無し</h4>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <% @posts.each do |post| %>
         <div class="col-md-7 border border-dark border border-5 rounded">
           <%= link_to admin_user_path(post.user.id), class: "nav-link text-dark" do %>
             <%= post.user.name %>

@@ -16,7 +16,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @search = Post.ransack(params[:q])
-    @posts = @search.result.page(params[:page])
+    @posts = @search.result.reverse_order.page(params[:page])
   end
 
   def show

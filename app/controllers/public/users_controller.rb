@@ -2,7 +2,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = current_user
     @post = @user.posts
-    @posts = Post.page(params[:page])
+    @posts = @user.posts.reverse_order.page(params[:page])
   end
 
   def edit
