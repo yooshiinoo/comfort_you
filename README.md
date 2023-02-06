@@ -20,7 +20,7 @@
 * テーブル定義書https://docs.google.com/spreadsheets/d/1IytN9QeZryE3ZHpwq7tL4Lqer8Mlz7LX-ILIb_xZZ3M/edit?usp=sharing
 * アプリケーション詳細設計書https://docs.google.com/spreadsheets/d/1Fi0nnNyH1HuErz1Fa4NNqqPOynfuilVF3xObh9S2eYE/edit?usp=sharing
 * ER図https://drive.google.com/file/d/1b8zZ-GgMs4UI3J4wtqIFDUgHAIRg8Yrs/view?usp=sharing
-
+* テスト仕様書 https://docs.google.com/spreadsheets/d/1Kusr-1b-V8zlIK0MLNoWZ-GKYq9P623I/edit?usp=sharing&ouid=117746928057565230674&rtpof=true&sd=true
 
 ## 開発環境
 - OS：Linux(CentOS)
