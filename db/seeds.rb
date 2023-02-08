@@ -9,3 +9,19 @@ Admin.create!(
     email: 'test@test.com',
     password: 'ttestt',
 )
+
+users = User.create!(
+  [
+    {email: 'aaa@test.com', name: 'aaa', password: 'aaaaaa'},
+    {email: 'bbb@test.com', name: 'bbb', password: 'bbbbbb'},
+    {email: 'ccc@test.com', name: 'ccc', password: 'cccccc'}
+  ]
+)
+
+Post.create!(
+  [
+    {text: 'お金に変えるだけの時間を過ごしている気がする', user_id: users[0].id },
+    {text: '小さいことにもイライラしちゃうのやめたい', user_id: users[1].id },
+    {text: '死ぬ勇気がないだけ', user_id: users[2].id }
+  ]
+)
