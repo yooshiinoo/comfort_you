@@ -12,9 +12,9 @@ Admin.create!(
 
 users = User.create!(
   [
-    {email: 'aaa@test.com', name: 'aaa', password: 'aaaaaa'},
-    {email: 'bbb@test.com', name: 'bbb', password: 'bbbbbb'},
-    {email: 'ccc@test.com', name: 'ccc', password: 'cccccc'}
+    {email: 'aaa@test.com', name: '望んで社畜になってない', password: 'aaaaaa'},
+    {email: 'bbb@test.com', name: 'ユピ(生理前)', password: 'bbbbbb'},
+    {email: 'ccc@test.com', name: '九頭', password: 'cccccc'}
   ]
 )
 
