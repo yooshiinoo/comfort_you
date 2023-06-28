@@ -1,4 +1,23 @@
 ja:
+  errors:
+    messages:
+      not_saved: "登録できませんでした。"
+  activerecord:
+    attributes:
+      user:
+        email: "メールアドレス"
+        password: "パスワード"
+        name: "ニックネーム"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "を入力してください"
+            password:
+              blank: "を入力してください"
+            name:
+              blank: "を入力してください"
   views:
     pagination:
       first: "&laquo; 最初"
