@@ -9,10 +9,10 @@
           <%= post.user.name %>
           <span class="row border-bottom border-dark border"></span>
           <div class="row" style="height:20px;"></div>
-          <%= link_to public_post_path(post.id), class: "nav-link text-dark" do %>
+          <%= link_to post_path(post.id), class: "nav-link text-dark" do %>
             <%= post.text %>
             <p class="text-right">
-              <%= link_to public_post_favorites_path(post), method: :delete do %>
+              <%= link_to post_favorites_path(post), method: :delete do %>
                 ♥
               <% end %>
             </p>

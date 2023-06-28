@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
   devise_scope :user do
-    post 'public/users/guest_sign_in', to: 'public/users/sessions#guest_sign_in'
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
 
 
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   root to: "public/homes#top"
 
-  namespace :public do
+  scope module: :public do
     get "/about" =>"homes#about"
     get "/users/my_page" => "users#show"
     get "/users/information/edit" => "users#edit"

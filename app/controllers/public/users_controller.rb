@@ -12,7 +12,7 @@ class Public::UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to public_users_my_page_path
+      redirect_to users_my_page_path
     else
       render :edit
     end
@@ -26,7 +26,7 @@ class Public::UsersController < ApplicationController
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    redirect_to public_about_path
+    redirect_to about_path
   end
 
   def index

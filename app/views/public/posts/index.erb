@@ -6,7 +6,7 @@
     <div class="col-md-8 mx-auto">
       <% if @posts.any? %>
         <div class="row d-flex">
-          <%= search_form_for @search, url:public_posts_path do |f| %>
+          <%= search_form_for @search, url:posts_path do |f| %>
             <div class="input-group md-6">
               <%= f.search_field :text_cont, class: "form-control", placeholder: '投稿が検索できるよ' %>
               <div class="input-group-append">
@@ -28,7 +28,7 @@
           <%= post.user.name %>
           <span class="row border-bottom border-dark border"></span>
           <div class="row" style="height:20px;"></div>
-          <%= link_to public_post_path(post.id), class: "nav-link text-dark" do %>
+          <%= link_to post_path(post.id), class: "nav-link text-dark" do %>
             <%= post.text %>
             <p class="text-right">♥♡</p>
             <span class="row border-bottom border-dark border-2"></span>

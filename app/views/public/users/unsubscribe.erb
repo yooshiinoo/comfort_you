@@ -4,7 +4,7 @@
   <div class="row" style="height:20px;"></div>
   <div class="row">
     <div class="col-md-6 mx-auto">
-      <div class="col-md-5.5 border border-dark border border-5 rounded">
+      <div class="col-md-10 border border-dark border border-5 rounded">
         <div class="d-flex align-items-center justify-content-center" style="height:200px;">
           <p>
             <strong>本当に退会する？</strong><br>
@@ -19,13 +19,13 @@
   <div class="row" style="height:20px;"></div>
   <div class="row">
     <div class="col-md-5.5 mx-auto">
-      <%= link_to "やっぱり退会しない", public_users_my_page_path(current_user), class:"btn btn-sm btn-success" %>
+      <%= link_to "やっぱり退会しない", users_my_page_path, class:"btn btn-sm btn-success" %>
     </div>
   </div>
   <div class="row" style="height:20px;"></div>
   <div class="row">
     <div class="col-md-5.5 mx-auto">
-      <%= link_to "それでも退会する", public_users_withdraw_path(current_user), method: :patch, data: { confirm: '本当に退会しますか？' }, class:"btn btn-sm btn-danger" %>
+      <%= link_to "それでも退会する", users_withdraw_path, method: :patch, data: { confirm: '本当に退会しますか？' }, class:"btn btn-sm btn-danger" %>
     </div>
   </div>
 </div>

@@ -9,15 +9,15 @@
         <span class="row border-bottom border-dark border"></span>
         <div class="row" style="height:20px;"></div>
         <% if @post.comments.any? %>
-          <%= link_to public_comment_path(@comments.ids), class: "nav-link text-dark" do %>
+          <%= link_to comment_path(@comments.ids), class: "nav-link text-dark" do %>
             <%= @post.text %>
             <p class="text-right">
               <% if @post.favorited_by?(current_user) %>
-                <%= link_to public_post_favorites_path(@post), method: :delete do %>
+                <%= link_to post_favorites_path(@post), method: :delete do %>
                   ♥
                 <% end %>
               <% else %>
-                <%= link_to public_post_favorites_path(@post), method: :post do %>
+                <%= link_to post_favorites_path(@post), method: :post do %>
                   ♡
                 <% end %>
               <% end %>
@@ -28,11 +28,11 @@
           <%= @post.text %>
           <p class="text-right">
             <% if @post.favorited_by?(current_user) %>
-              <%= link_to public_post_favorites_path(@post), method: :delete do %>
+              <%= link_to post_favorites_path(@post), method: :delete do %>
                 ♥
               <% end %>
             <% else %>
-              <%= link_to public_post_favorites_path(@post), method: :post do %>
+              <%= link_to post_favorites_path(@post), method: :post do %>
                 ♡
               <% end %>
             <% end %>
@@ -40,7 +40,7 @@
           <span class="row border-bottom border-dark border-2"></span>
         <% end %>
         <div class="row" style="height:10px;"></div>
-        <%= form_with model: @comment, url:public_comments_path do |f| %>
+        <%= form_with model: @comment, url:comments_path do |f| %>
           <p>
             コメント
             <%= f.text_field :text, placeholder: "もらって嬉しい言葉を" %>
