@@ -1,7 +1,7 @@
 ja:
   errors:
     messages:
-      not_saved: "登録できませんでした。"
+      not_saved: "入力しないと登録できないよ"
   activerecord:
     attributes:
       user:
@@ -13,11 +13,11 @@ ja:
         user:
           attributes:
             email:
-              blank: "を入力してください"
+              blank: "を入力してね"
             password:
-              blank: "を入力してください"
+              blank: "を入力してね"
             name:
-              blank: "を入力してください"
+              blank: "を入力してね"
   views:
     pagination:
       first: "&laquo; 最初"

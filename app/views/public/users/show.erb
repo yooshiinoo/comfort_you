@@ -27,17 +27,17 @@
         </table>
       </div>
       <div class="row">
-        <div class="col-md-5 mx-auto">
+        <div class="col-md-8 mx-auto">
           <% if @user.email == "guest@guest.com" %>
             <button type="button" class="btn btn-success">編集は出来ないよ</button>
           <% else %>
-            <%= link_to "編集する", users_information_edit_path, class:"btn btn-sm btn-success" %>
+            <%= link_to "編集する", users_information_edit_path, class:"btn btn-success" %>
           <% end %>
         </div>
       </div>
       <div class="row" style="height:50px;"></div>
       <div class="row">
-        <div class="col-md-7 mx-auto">
+        <div class="col-md-8 mx-auto">
           <%= link_to users_favorite_path, class:"btn btn-outline-danger" do %>
             いいね一覧を見る
           <% end %>
