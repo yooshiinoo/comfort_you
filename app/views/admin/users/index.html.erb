@@ -1,37 +1,43 @@
 <div class="container">
   <div class="row" style="height:50px;"></div>
-  <h2>ユーザー一覧</h2>
-  <div class="row" style="height:20px;"></div>
-  <div class="row">
-    <div class="col-md-8 mx-auto">
-      <table class="table table-borderless">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>ニックネーム</th>
-            <th>投稿数</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
+  <% if signed_in? %>
+    <h2>ユーザー一覧</h2>
+    <div class="row" style="height:20px;"></div>
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <table class="table table-borderless">
+          <thead>
             <tr>
-              <td><%= user.id %></td>
-              <td>
-                <%= link_to admin_user_path(user.id), class: "nav-link text-dark" do %>
-                  <% if user.is_deleted == false %>
-                    <p class="text-info"><%= user.name %></p>
-                  <% else %>
-                    <p class="text-danger"><%= user.name %></p>
-                  <% end %>
-                <% end %>
-              </td>
-              <td><%= user.posts.count %></td>
+              <th>ID</th>
+              <th>ニックネーム</th>
+              <th>投稿数</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @users %>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.id %></td>
+                <td>
+                  <%= link_to admin_user_path(user.id), class: "nav-link text-dark" do %>
+                    <% if user.is_deleted == false %>
+                      <p class="text-info"><%= user.name %></p>
+                    <% else %>
+                      <p class="text-danger"><%= user.name %></p>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td><%= user.posts.count %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @users %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <%= link_to new_admin_session_path, class:"btn btn-outline-success" do %>
+      ログインしてください。
+    <% end %>
+  <% end %>
   <div class="row" style="height:100px;"></div>
 </div>

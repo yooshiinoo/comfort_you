@@ -1,49 +1,55 @@
 <div class="container">
-  <h2><%= @user.name %>の編集ページ</h2>
-  <div class="row">
-    <div class="col-md-8 mx-auto">
-      <% if @user.errors.any? %>
-        <%= @user.errors.count %>件のエラーが発生しました
-        <ul>
-          <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+  <% if signed_in? %>
+    <h2><%= @user.name %>の編集ページ</h2>
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <% if @user.errors.any? %>
+          <%= @user.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
         <% end %>
-        </ul>
-      <% end %>
-      <%= form_with model: @user, url:admin_user_path, method: :patch do |f| %>
-        <table class="table table-borderless">
-          <div class="form-group">
-            <tr>
-              <th>ユーザーID</th>
-              <td><%= @user.id %></td>
-            </tr>
-          </div>
-          <div class="form-group">
-            <tr>
-              <th>ニックネーム</th>
-              <td><%= f.text_field :name,  autofocus: true, placeholder:@user.name %></td>
-            </tr>
-          </div>
-          <div class="form-group">
-            <tr>
-              <th>メールアドレス</th>
-              <td><%= f.text_field :email, autofocus: true, placeholder:@user.email %></td>
-            </tr>
-          </div>
-          <div class="form-group">
-            <tr>
-              <th>ステータス</th>
-              <td>
-                <%= f.radio_button :is_deleted, :false %>
-                <%= f.label :is_deleted, "有効", {value: :false, style: "display: inline-block;"} %>
-                <%= f.radio_button :is_deleted, :true %>
-                <%= f.label :is_deleted, "退会", {value: :true, style: "display: inline-block;"} %>
-              </td>
-            </tr>
-          </div>
-        </table>
-        <%= f.submit "更新する", class: "btn btn-success" %>
-      <% end %>
+        <%= form_with model: @user, url:admin_user_path, method: :patch do |f| %>
+          <table class="table table-borderless">
+            <div class="form-group">
+              <tr>
+                <th>ユーザーID</th>
+                <td><%= @user.id %></td>
+              </tr>
+            </div>
+            <div class="form-group">
+              <tr>
+                <th>ニックネーム</th>
+                <td><%= f.text_field :name,  autofocus: true, placeholder:@user.name %></td>
+              </tr>
+            </div>
+            <div class="form-group">
+              <tr>
+                <th>メールアドレス</th>
+                <td><%= f.text_field :email, autofocus: true, placeholder:@user.email %></td>
+              </tr>
+            </div>
+            <div class="form-group">
+              <tr>
+                <th>ステータス</th>
+                <td>
+                  <%= f.radio_button :is_deleted, :false %>
+                  <%= f.label :is_deleted, "有効", {value: :false, style: "display: inline-block;"} %>
+                  <%= f.radio_button :is_deleted, :true %>
+                  <%= f.label :is_deleted, "退会", {value: :true, style: "display: inline-block;"} %>
+                </td>
+              </tr>
+            </div>
+          </table>
+          <%= f.submit "更新する", class: "btn btn-success" %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <%= link_to new_admin_session_path, class:"btn btn-outline-success" do %>
+      ログインしてください。
+    <% end %>
+  <% end %>
 </div>

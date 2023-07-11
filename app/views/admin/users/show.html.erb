@@ -1,62 +1,68 @@
 <div class="container">
   <div class="row" style="height:50px;"></div>
-  <h2><%= @user.name %>のページ</h2>
-  <div class="row" style="height:20px;"></div>
-  <div class="row">
-    <div class="col-md-3 mx-auto">
-      <div class="row">
-        <table class="table table-borderless">
-          <th>ニックネーム</th>
-          <td><%= @user.name %></td>
-        </table>
-      </div>
-      <div class="row">
-        <table class="table table-borderless">
-          <th>メールアドレス</th>
-          <td><%= @user.email %></td>
-        </table>
-      </div>
-      <div class="row">
-        <table class="table table-borderless">
-          <th>ステータス</th>
-          <td>
-            <% if @user.is_deleted == false %>
-              <p class="text-info">有効</p>
-            <% else %>
-              <p class="text-danger">退会</p>
-            <% end %>
-          </td>
-        </table>
-      </div>
-      <div class="row">
-        <div class="col-md-2.5 mx-auto">
-          <%= link_to "編集する", edit_admin_user_path(@user), class:"btn btn-sm btn-success" %>
+  <% if signed_in? %>
+    <h2><%= @user.name %>のページ</h2>
+    <div class="row" style="height:20px;"></div>
+    <div class="row">
+      <div class="col-md-3 mx-auto">
+        <div class="row">
+          <table class="table table-borderless">
+            <th>ニックネーム</th>
+            <td><%= @user.name %></td>
+          </table>
+        </div>
+        <div class="row">
+          <table class="table table-borderless">
+            <th>メールアドレス</th>
+            <td><%= @user.email %></td>
+          </table>
+        </div>
+        <div class="row">
+          <table class="table table-borderless">
+            <th>ステータス</th>
+            <td>
+              <% if @user.is_deleted == false %>
+                <p class="text-info">有効</p>
+              <% else %>
+                <p class="text-danger">退会</p>
+              <% end %>
+            </td>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-md-2.5 mx-auto">
+            <%= link_to "編集する", edit_admin_user_path(@user), class:"btn btn-sm btn-success" %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-8 mx-auto">
-      <h4><%= @user.name %>の投稿一覧</h4>
-      <div class="row" style="height:20px;"></div>
-      <% @posts.each do |post| %>
-        <div class="col-md-7 border border-dark border border-5 rounded">
-          <%= post.user.name %>
-          <span class="row border-bottom border-dark border"></span>
-          <div class="row" style="height:20px;"></div>
-          <%= link_to admin_post_path(post), class: "nav-link text-dark" do %>
-            <%= post.text %>
+      <div class="col-md-8 mx-auto">
+        <h4><%= @user.name %>の投稿一覧</h4>
+        <div class="row" style="height:20px;"></div>
+        <% @posts.each do |post| %>
+          <div class="col-md-7 border border-dark border border-5 rounded">
+            <%= post.user.name %>
+            <span class="row border-bottom border-dark border"></span>
             <div class="row" style="height:20px;"></div>
-            <span class="row border-bottom border-dark border-2"></span>
-            <p>コメント <%= post.comments.count %>件</p>
-          <% end %>
-        </div>
-        <div class="row" style="height:15px;"></div>
-      <% end %>
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <%= paginate @posts %>
+            <%= link_to admin_post_path(post), class: "nav-link text-dark" do %>
+              <%= post.text %>
+              <div class="row" style="height:20px;"></div>
+              <span class="row border-bottom border-dark border-2"></span>
+              <p>コメント <%= post.comments.count %>件</p>
+            <% end %>
+          </div>
+          <div class="row" style="height:15px;"></div>
+        <% end %>
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <%= paginate @posts %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% else %>
+    <%= link_to new_admin_session_path, class:"btn btn-outline-success" do %>
+      ログインしてください。
+    <% end %>
+  <% end %>
   <div class="row" style="height:100px;"></div>
 </div>

@@ -1,29 +1,35 @@
 <div class="container">
   <div class="row" style="height:50px;"></div>
-  <h2>必要があれば削除</h2>
-  <div class="row" style="height:20px;"></div>
-  <div class="row">
-    <div class="col-md-10 mx-auto">
-      <div class="col-md-7 border border-dark border border-5 rounded">
-        <%= @post.user.name %>
-        <span class="row border-bottom border-dark border"></span>
-        <div class="row" style="height:10px;"></div>
-        <%= @post.text %>
-        <div class="row" style="height:20px;"></div>
-        <span class="row border-bottom border-dark border-2"></span>
-        <div class="row" style="height:10px;"></div>
-        <p>コメント</p>
-        <% @post.comments.reverse.each do |post| %>
-          <table class="table table-borderless">
-            <tr>
-              <td><%= post.user.name %></td>
-              <td><%= post.text %></td>
-              <td><%= link_to "削除", admin_comment_path(@comment.ids), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %></td>
-            </tr>
-          </table>
-        <% end %>
+  <% if signed_in? %>
+    <h2>必要があれば削除</h2>
+    <div class="row" style="height:20px;"></div>
+    <div class="row">
+      <div class="col-md-10 mx-auto">
+        <div class="col-md-7 border border-dark border border-5 rounded">
+          <%= @post.user.name %>
+          <span class="row border-bottom border-dark border"></span>
+          <div class="row" style="height:10px;"></div>
+          <%= @post.text %>
+          <div class="row" style="height:20px;"></div>
+          <span class="row border-bottom border-dark border-2"></span>
+          <div class="row" style="height:10px;"></div>
+          <p>コメント</p>
+          <% @post.comments.reverse.each do |post| %>
+            <table class="table table-borderless">
+              <tr>
+                <td><%= post.user.name %></td>
+                <td><%= post.text %></td>
+                <td><%= link_to "削除", admin_comment_path(@comment.ids), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %></td>
+              </tr>
+            </table>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row" style="height:100px;"></div>
+    <div class="row" style="height:100px;"></div>
+  <% else %>
+    <%= link_to new_admin_session_path, class:"btn btn-outline-success" do %>
+      ログインしてください。
+    <% end %>
+  <% end %>
 </div>
